@@ -29,7 +29,7 @@ jobs:
       - name: Start DB container
         env:
           MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
-        run: docker-compose up -d
+        run: docker compose up -d
       - name: Wait for DB to be ready
         uses: iFaxity/wait-on-action@v1.2.1
         with:
