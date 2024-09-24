@@ -1,12 +1,12 @@
 #
 # ntu-sc2207
-# Docker Compse
+# Docker Compose
 #
 
 services:
   db:
     image: mcr.microsoft.com/mssql/server:2022-CU12-GDR1-ubuntu-20.04
-    ports: 
+    ports:
       - "1433:1433"
     volumes:
       - ./:/src
