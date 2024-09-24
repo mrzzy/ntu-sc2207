@@ -24,15 +24,8 @@ sqlfluff fix .
 
 Project structure:
 
-- `ddl/*.sql`: SQL DDL statements to create the tables in DB schema.
-- `data/*.sql`: SQL `INSERT` statements to populate the tables with data rows.
-- `queries/*.sql`: SQL queries to retrieve data as per lab requirements.
+- `ddl.sql`: SQL DDL statements to create the tables in DB schema.
+- `data.sql`: SQL `INSERT` statements to populate the tables with data rows.
+- `queries.sql`: SQL queries to retrieve data as per lab requirements.
 
-> `ddl/` SQL files will execute first, followed by `data/` then `queries/`
-
-### File Naming
-
-SQL files should be named in the format: `<ORDER>_*.sql` :
-
-- `<ORDER>` is a positive integer defining the **sequence** in which the SQL files 
-    should be executed within their respective folders.
+> `ddl.sql` will be executed first, followed by `data.sql` then `queriesl.sql`

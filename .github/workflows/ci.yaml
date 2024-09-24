@@ -41,14 +41,14 @@ jobs:
         uses: azure/sql-action@v2.3
         with:
           connection-string: "${{ env.CONN_STRING }}"
-          path: "./ddl/*.sql"
+          path: "./ddl.sql"
       - name: Execute INSERTs on DB
         uses: azure/sql-action@v2.3
         with:
           connection-string: "${{ env.CONN_STRING }}"
-          path: "./data/*.sql"
+          path: "./data.sql"
       - name: Execute Queries on DB
         uses: azure/sql-action@v2.3
         with:
           connection-string: "${{ env.CONN_STRING }}"
-          path: "./sql/*.sql"
+          path: "./queries.sql"
