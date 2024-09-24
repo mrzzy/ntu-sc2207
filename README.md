@@ -28,4 +28,4 @@ Project structure:
 - `data.sql`: SQL `INSERT` statements to populate the tables with data rows.
 - `queries.sql`: SQL queries to retrieve data as per lab requirements.
 
-> `ddl.sql` will be executed first, followed by `data.sql` then `queriesl.sql`
+> `ddl.sql` will be executed first, followed by `data.sql` then `queries.sql`
