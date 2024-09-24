@@ -21,8 +21,6 @@ jobs:
 
   test:
     name: Test SQL on MS SQL Server DB
-    env:
-      CONN_STRING: "Server=localhost;Initial Catalog=mprops; User ID=sa; Password=${{ secrets.MSSQL_SA_PASSWORD }}"
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -38,17 +36,8 @@ jobs:
           timeout: 90000 # timeout in 90s
           verbose: true
       - name: Execute SQL DDL on DB
-        uses: azure/sql-action@v2.3
-        with:
-          connection-string: "${{ env.CONN_STRING }}"
-          path: "./ddl.sql"
+        run: sqlcmd -S localhost -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i ddl.sql
       - name: Execute INSERTs on DB
-        uses: azure/sql-action@v2.3
-        with:
-          connection-string: "${{ env.CONN_STRING }}"
-          path: "./data.sql"
+        run: sqlcmd -S localhost -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i data.sql
       - name: Execute Queries on DB
-        uses: azure/sql-action@v2.3
-        with:
-          connection-string: "${{ env.CONN_STRING }}"
-          path: "./queries.sql"
+        run: sqlcmd -S localhost -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i queries.sql
