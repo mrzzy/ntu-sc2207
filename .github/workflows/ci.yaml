@@ -31,7 +31,7 @@ jobs:
           MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
         run: docker-compose up -d
       - name: Wait for DB to be ready
-        uses: iFaxity/wait-on-action
+        uses: iFaxity/wait-on-action@v1.2.1
         with:
           resource: localhost:1433
       - name: Execute SQL DDL on DB
