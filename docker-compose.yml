@@ -12,4 +12,6 @@ services:
       - ./:/src
     environment:
       ACCEPT_EULA: Y
+      # pass mssql password from env file
       MSSQL_SA_PASSWORD:
+    network_mode: host

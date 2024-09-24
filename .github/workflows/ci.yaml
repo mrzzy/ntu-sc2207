@@ -22,11 +22,11 @@ jobs:
   test:
     name: Test SQL on MS SQL Server DB
     runs-on: ubuntu-22.04
+    env:
+      MSSQL_SA_PASSWORD: "${{ secrets.MSSQL_SA_PASSWORD }}"
     steps:
       - uses: actions/checkout@v4
       - name: Start DB container
-        env:
-          MSSQL_SA_PASSWORD: "${{ secrets.MSSQL_SA_PASSWORD }}"
         run: docker compose up -d
       - name: Wait for DB to be ready
         uses: iFaxity/wait-on-action@v1.2.1
@@ -37,8 +37,8 @@ jobs:
           timeout: 90000 # timeout in 90s
           verbose: true
       - name: Execute SQL DDL on DB
-        run: sqlcmd -S "tcp:localhost,1433" -d mprops -U sa -P "${{ secrets.MSSQL_SA_PASSWORD }}" -i ddl.sql
+        run: sqlcmd -S tcp:127.0.0.1 -d mprops -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i ddl.sql
       - name: Execute INSERTs on DB
-        run: sqlcmd -S "tcp:localhost,1433" -d mprops -U sa -P "${{ secrets.MSSQL_SA_PASSWORD }}" -i data.sql
+        run: sqlcmd -S tcp:127.0.0.1 -d mprops -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i data.sql
       - name: Execute Queries on DB
-        run: sqlcmd -S "tcp:localhost,1433" -d mprops -U sa -P "${{ secrets.MSSQL_SA_PASSWORD }}" -i queries.sql
+        run: sqlcmd -S tcp:127.0.0.1 -d mprops -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i queries.sql
