@@ -1,8 +1,8 @@
 -- PropertyOwner table
-CREATE TABLE PropertyOwner (
-    nric VARCHAR(9) PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    contactNum VARCHAR(20) UNIQUE NOT NULL,
-    gender CHAR(1) CHECK (gender IN ('M', 'F')),
-    age INT CHECK (age > 0)
+CREATE TABLE PROPERTYOWNER (
+    NRIC VARCHAR(9) PRIMARY KEY,
+    "Name" VARCHAR(100) NOT NULL,
+    CONTACTNUM VARCHAR(20) UNIQUE NOT NULL,
+    GENDER CHAR(1) CHECK (GENDER IN ('M', 'F')),
+    AGE INT CHECK (AGE > 0)
 );

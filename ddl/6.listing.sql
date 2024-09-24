@@ -1,6 +1,6 @@
 -- Listing table
 CREATE TABLE Listing (
-    id INT PRIMARY KEY IDENTITY(1,1),
-    createdOn DATE NOT NULL,
-    unitNum VARCHAR(50) NOT NULL
+    Id INT PRIMARY KEY IDENTITY (1, 1),
+    Createdon DATE NOT NULL,
+    Unitnum VARCHAR(50) NOT NULL
 );
