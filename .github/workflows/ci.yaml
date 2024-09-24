@@ -32,13 +32,12 @@ jobs:
         uses: iFaxity/wait-on-action@v1.2.1
         with:
           resource: tcp:localhost:1433
-          delay: 30000 # wait 15s for db container to startup
           interval: 5000 # pool every 5s
           timeout: 90000 # timeout in 90s
           verbose: true
       - name: Execute SQL DDL on DB
-        run: sqlcmd -S tcp:127.0.0.1 -d mprops -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i ddl.sql
+        run: sqlcmd -S tcp:127.0.0.1 -d master -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i ddl.sql
       - name: Execute INSERTs on DB
-        run: sqlcmd -S tcp:127.0.0.1 -d mprops -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i data.sql
+        run: sqlcmd -S tcp:127.0.0.1 -d master -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i data.sql
       - name: Execute Queries on DB
-        run: sqlcmd -S tcp:127.0.0.1 -d mprops -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i queries.sql
+        run: sqlcmd -S tcp:127.0.0.1 -d master -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -i queries.sql
