@@ -36,8 +36,8 @@ jobs:
           timeout: 90000 # timeout in 90s
           verbose: true
       - name: Execute SQL DDL on DB
-        run: sqlcmd -S localhost -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i ddl.sql
+        run: sqlcmd -S "tcp:localhost,1433" -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i ddl.sql
       - name: Execute INSERTs on DB
-        run: sqlcmd -S localhost -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i data.sql
+        run: sqlcmd -S "tcp:localhost,1433" -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i data.sql
       - name: Execute Queries on DB
-        run: sqlcmd -S localhost -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i queries.sql
+        run: sqlcmd -S "tcp:localhost,1433" -d mprops -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -i queries.sql
