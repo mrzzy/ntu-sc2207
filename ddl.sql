@@ -47,4 +47,22 @@ CREATE TABLE listing (
     unitnum VARCHAR(50) NOT NULL
 );
 
+--Rental
+CREATE TABLE rental (
+    listingId INT FOREIGN KEY REFERENCES listing(id),
+    hasUtilities BOOLEAN NOT NULL,
+    hasAircon BOOLEAN NOT NULL
+);
+--ShortTermRental
+CREATE TABLE shorttermrental (
+    listingId INT FOREIGN KEY REFERENCES listing(id),
+    dailyRental FLOAT NOT NULL
+);
+--LongTermRental
+CREATE TABLE longtermrental (
+    listingId INT FOREIGN KEY REFERENCES listing(id),
+    monthlyRental FLOAT NOT NULL,
+    minStay INT NOT NULL,
+    allowVisitors BOOLEAN NOT NULL
+);
 COMMIT;
