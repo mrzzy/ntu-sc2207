@@ -29,7 +29,24 @@ INSERT INTO [User] (nric, [name], contactnum, password, email) VALUES
     '+6598765436',
     'password654',
     'charlie.lim@example.com'
-);
+),
+('S6789012F', 'Desmond Ang', '+6581235394', 'password376', 'desmond.ang@example.com'),
+(
+    'S7890123G',
+    'Elise Chong',
+    '+6592750725',
+    'password563',
+    'elise.chong@example.com'
+),
+('S8901234H', 'Frank Ow', '+6590278150', 'password062', 'frank.ow@example.com'),    
+(
+    'S8901234J', 
+    'Gerry Tan', 
+    '+6581630472', 
+    'password592'
+    'gerry.tan@example.com'
+),
+('S9012345K', 'Harold Poon', '+658224710', 'password284', harold.poon@example.com');
 
 -- Insert data into Customer table
 INSERT INTO customer (nric, intention) VALUES
@@ -57,7 +74,11 @@ INSERT INTO agency ([Name], establishedyear) VALUES
 
 -- Insert data into PropertyOwner table
 INSERT INTO propertyowner (nric, [name], contactnum, gender, age) VALUES
-(
+('S6789012F', 'Desmond Ang', '+6581235394', 'M', '50'),
+('S7890123G', 'Elise Chong', '+6592750725', 'F', '26'),
+('S8901234H', 'Frank Ow', '+6590278150', 'M', '44'),
+('S8901234J', 'Gerry Tan', '+6581630472', 'F', '63'),
+('S9012345K', 'Harold Poon', '+658224710', 'M', '38');    
 
 -- Insert data into Listing table
 INSERT INTO listing (id, createdon, unitnum) VALUES
@@ -65,6 +86,6 @@ INSERT INTO listing (id, createdon, unitnum) VALUES
 ('2', '2021-07-22', '01-018'),
 ('3', '2022-11-05', '17-364'),
 ('4', '2024-01-09', '09-02'),
-('5', 2020-05-30', '15-127');
+('5', '2020-05-30', '15-127');
     
 COMMIT;
