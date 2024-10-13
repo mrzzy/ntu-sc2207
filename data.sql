@@ -47,4 +47,24 @@ INSERT INTO agent (nric, licensenum, licenseexpiry) VALUES
 ('S4567890D', 'LIC45678', '2023-09-20'),
 ('S5678901E', 'LIC56789', '2025-08-25');
 
+-- Insert data into Agency table
+INSERT INTO agency ([Name], establishedyear) VALUES
+('PropNex Realty Pte Ltd', '1999'),
+('ERA Realty Network Pte Ltd', '1982'),
+('Huttons Asia Pte Ltd', '2002'),
+('OrangeTee & Tie Pte Ltd', '2000'),
+('SRI Pte Ltd', '2016');
+
+-- Insert data into PropertyOwner table
+INSERT INTO propertyowner (nric, [name], contactnum, gender, age) VALUES
+(
+
+-- Insert data into Listing table
+INSERT INTO listing (id, createdon, unitnum) VALUES
+('1', '2023-03-15', '13-05')
+('2', '2021-07-22', '01-018'),
+('3', '2022-11-05', '17-364'),
+('4', '2024-01-09', '09-02'),
+('5', 2020-05-30', '15-127');
+    
 COMMIT;
