@@ -47,12 +47,40 @@ CREATE TABLE listing (
     unitnum VARCHAR(50) NOT NULL
 );
 
---Rental
+-- Property tables
+CREATE TABLE Property_R1 (
+    unitNum INT PRIMARY KEY,
+    propertyOwnerId INT NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    postcode VARCHAR(10) NOT NULL,
+    size INT,
+    furnishing VARCHAR(50)
+);
+
+CREATE TABLE Property_R2 (
+    postcode VARCHAR(10) PRIMARY KEY,
+    street VARCHAR(100) NOT NULL
+);
+
+ALTER TABLE Property_R1
+ADD CONSTRAINT fk_postcode
+FOREIGN KEY (postcode) REFERENCES Property_R2(postcode);
+
+-- Sale table
+CREATE TABLE Sale (
+    listingId INT FOREIGN KEY REFERENCES listing(id),
+    price DECIMAL(10, 2) NOT NULL,
+    buildYear INT NOT NULL,
+    tenure VARCHAR(50) NOT NULL
+);
+
+-- Rental table
 CREATE TABLE rental (
     listingId INT FOREIGN KEY REFERENCES listing(id),
     hasUtilities BOOLEAN NOT NULL,
     hasAircon BOOLEAN NOT NULL
 );
+
 --ShortTermRental
 CREATE TABLE shorttermrental (
     listingId INT FOREIGN KEY REFERENCES listing(id),
