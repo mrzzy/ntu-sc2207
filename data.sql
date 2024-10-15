@@ -101,7 +101,7 @@ INSERT INTO listing (createdon, unitnum) VALUES
 ('2020-05-30', '15-127');
 
 -- Insert into R2 before inserting into R1
-INSERT INTO property_r2 (postcode, street) VALUES
+INSERT INTO property_2 (postcode, street) VALUES
 ('123456', 'Orchard Road'),
 ('123467', 'Sengkang Road'),
 ('123478', 'Bukit Timah Road'),
@@ -109,7 +109,7 @@ INSERT INTO property_r2 (postcode, street) VALUES
 ('123490', 'Yishun Ring Road');
 
 -- Insert data into Property tables
-INSERT INTO property_r1 (
+INSERT INTO property_main (
     unitnum, propertyownerid, type, postcode, size, furnishing
 ) VALUES
 (101, 1, 'Condo', '123456', 1000, 'Furnished'),
@@ -117,13 +117,23 @@ INSERT INTO property_r1 (
 (103, 3, 'HDB', '123478', 900, 'Partially Furnished'),
 (104, 4, 'Bungalow', '123489', 2000, 'Furnished'),
 (105, 5, 'Terrace', '123490', 1200, 'Unfurnished');
--- Insert data into Sale table
-INSERT INTO sale (listingid, price, buildyear, tenure) VALUES
-(1, 850000, 2010, 'Freehold'),
-(2, 650000, 2012, '99-year Leasehold'),
-(3, 750000, 2015, '999-year Leasehold'),
-(4, 920000, 2018, 'Freehold'),
-(5, 670000, 2020, '99-year Leasehold');
+
+-- Insert into R2 before inserting into R1
+INSERT INTO sale_2 (buildyear, tenure) VALUES
+(2010, 'Freehold'),
+(2012, '99-year Leasehold'),
+(2015, '999-year Leasehold'),
+(2018, 'Freehold'),
+(2020, '99-year Leasehold');
+
+-- Insert data into Sale tables
+INSERT INTO sale_main (listingid, price, buildyear) VALUES
+(1, 850000, 2010),
+(2, 650000, 2012),
+(3, 750000, 2015),
+(4, 920000, 2018),
+(5, 670000, 2020);
+
 
 -- Insert data into Rental table
 INSERT INTO rental (listingid, hasutilities, hasaircon) VALUES
