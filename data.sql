@@ -77,7 +77,7 @@ INSERT INTO agent (nric, licensenum, licenseexpiry) VALUES
 ('S5678901E', 'LIC56789', '2025-08-25');
 
 -- Insert data into Agency table
-INSERT INTO agency ([Name], establishedyear) VALUES
+INSERT INTO agency ([name], establishedyear) VALUES
 ('PropNex Realty Pte Ltd', '1999'),
 ('ERA Realty Network Pte Ltd', '1982'),
 ('Huttons Asia Pte Ltd', '2002'),
