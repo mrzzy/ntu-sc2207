@@ -43,7 +43,7 @@ INSERT INTO [User] (nric, [name], contactnum, password, email) VALUES
     'S8901234J', 
     'Gerry Tan', 
     '+6581630472', 
-    'password592'
+    'password592',
     'gerry.tan@example.com'
 ),
 ('S9012345K', 'Harold Poon', '+658224710', 'password284', 'harold.poon@example.com');
