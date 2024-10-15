@@ -96,6 +96,13 @@ INSERT INTO Property_R2 (postcode, street) VALUES
 ('123489', 'Tampines Avenue'),
 ('123490', 'Yishun Ring Road');
     
+-- Insert data into Property tables
+INSERT INTO Property_R1 (unitNum, propertyOwnerId, type, postcode, size, furnishing) VALUES
+(101, 1, 'Condo', '123456', 1000, 'Furnished'),
+(102, 2, 'Apartment', '123467', 850, 'Unfurnished'),
+(103, 3, 'HDB', '123478', 900, 'Partially Furnished'),
+(104, 4, 'Bungalow', '123489', 2000, 'Furnished'),
+(105, 5, 'Terrace', '123490', 1200, 'Unfurnished');
 -- Insert data into Sale table
 INSERT INTO Sale (listingId, price, buildYear, tenure) VALUES
 (1, 850000, 2010, 'Freehold'),
