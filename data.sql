@@ -134,12 +134,14 @@ INSERT INTO rental (listingid, hasutilities, hasaircon) VALUES
 (5, 'FALSE', 'FALSE');
 
 -- Insert data into shorttermrental table
-INSERT INTO shorttermrental (listingId, dailyRental) VALUES
+INSERT INTO shorttermrental (listingid, dailyrental) VALUES
 (1, 20.20),
 (2, 30.30);
 
 -- Insert data into longtermrental table
-INSERT INTO longtermrental (listingId, monthlyRental, minStay, allowVisitors) VALUES
+INSERT INTO longtermrental (
+    listingid, monthlyrental, minstay, allowvisitors
+) VALUES
 (3, 300.40, 20, TRUE),
 (4, 355.50, 25, FALSE),
 (5, 322.50, 24, TRUE);
