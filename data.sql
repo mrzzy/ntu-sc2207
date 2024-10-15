@@ -82,7 +82,7 @@ INSERT INTO propertyowner (nric, [name], contactnum, gender, age) VALUES
 
 -- Insert data into Listing table
 INSERT INTO listing (id, createdon, unitnum) VALUES
-('1', '2023-03-15', '13-05')
+('1', '2023-03-15', '13-05'),
 ('2', '2021-07-22', '01-018'),
 ('3', '2022-11-05', '17-364'),
 ('4', '2024-01-09', '09-02'),
