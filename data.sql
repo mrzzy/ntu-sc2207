@@ -198,4 +198,36 @@ INSERT INTO appointmentlog (
 ('S4567890D', 4, '2024-10-23', '2024-10-23 11:30', 'Started', 'S4567890D'),
 ('S5678901E', 5, '2024-10-24', '2024-10-24 15:45', 'Started', 'S5678901E');
 
+
+-- Insert data into ViewingHistory table
+INSERT INTO viewingHistory (
+    customerId, listingId, datetime, status
+) VALUES
+('S1234567A', 1, '2024-10-18', "New"),
+('S2345678B', 2, '2024-10-19', "viewed 3 times"),
+('S3456789C', 3, '2024-10-20', "viewed 5 times"),
+('S4567890D', 4, '2024-10-21', "viewed 2 times"),
+('S5678901E', 5, '2024-10-22', "viewed 7 times");
+
+-- Insert data into chat
+INSERT INTO chat (
+    customerId, listingId, timestamp, content
+) Values
+    ('S1234567A', 1, '2024-10-18 14:00', "> Hi, I am interested in this property"),
+    ('S2345678B', 2, '2024-10-19 11:00', "> Hi, is this property available"),
+    ('S3456789C', 3, '2024-10-20 19:17', "> How do I book an appointment?"),
+    ('S4567890D', 4, '2024-10-21 14:25', "> Thank you! <3"),
+    ('S5678901E', 5, '2024-10-22 13:01', "> I don't want this anymore.");
+
+-- Insert data into reviewLog
+INSERT INTO reviewlog (
+    listingId, usernric, datetime, comment, rating
+) Values
+    (1, 'S1234567A', '2024-10-26 14:00', "> I regret spending time with this agent", 1),
+    (2, 'S2345678B', '2024-10-27 11:00', "> Agent is supportive! Love the attitude", 5),
+    (3, 'S3456789C', '2024-10-28 19:17', "> Nice house, I bought it", 3),
+    (4, 'S4567890D', '2024-10-29 14:25', "> What a haunted house", 2),
+    (5, 'S5678901E', '2024-10-30 13:01', "> The agent is terrible", 1);
+
+
 COMMIT;
