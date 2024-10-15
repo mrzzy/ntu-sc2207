@@ -44,3 +44,49 @@ jobs:
         run: sqlcmd -S tcp:127.0.0.1 -d master -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -b -m 11 -V 11 -i data.sql
       - name: Execute Queries on DB
         run: sqlcmd -S tcp:127.0.0.1 -d master -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -b -m 11 -V 11 -i queries.sql
+
+  test-jupyter:
+    name: Test Jupyter Notebook on MS SQL Server DB
+    runs-on: ubuntu-22.04
+    env:
+      MSSQL_SA_PASSWORD: "${{ secrets.MSSQL_SA_PASSWORD }}"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start DB container
+        run: docker compose up -d
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10.13"
+          # cache pip dependencies
+          cache: "pip"
+      - name: Install pip dependencies
+        run: pip install -r requirements.txt
+      - name: Install DB ODBC driver
+        run: |
+          # Add the signature to trust the Microsoft repo
+          # For Ubuntu versions < 24.04 
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
+          # Add repo to apt sources
+          curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+          # Install the driver
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
+          # optional: for bcp and sqlcmd
+          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18
+          echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+          source ~/.bashrc
+          # optional: for unixODBC development headers
+          sudo apt-get install -y unixodbc-dev
+      - name: Wait for DB to be ready
+        uses: iFaxity/wait-on-action@v1.2.1
+        with:
+          resource: tcp:localhost:1433
+          delay: 5000 # allow 5s for sql server to start up
+          interval: 5000 # pool every 5s
+          timeout: 90000 # timeout in 90s
+          verbose: true
+      - name: Convert Jupyter notebook to script lab.py
+        run: jupyter nbconvert --to script lab.ipynb
+      - name: Execute Jupyter notebook lab.py script
+        run: ipython lab.py
