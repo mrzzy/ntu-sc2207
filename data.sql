@@ -81,22 +81,14 @@ INSERT INTO propertyowner (nric, [name], contactnum, gender, age) VALUES
 ('S9012345K', 'Harold Poon', '+658224710', 'M', '38');    
 
 -- Insert data into Listing table
-INSERT INTO listing (id, createdon, unitnum) VALUES
-('1', '2023-03-15', '13-05'),
-('2', '2021-07-22', '01-018'),
-('3', '2022-11-05', '17-364'),
-('4', '2024-01-09', '09-02'),
-('5', '2020-05-30', '15-127');
+INSERT INTO listing (createdon, unitnum) VALUES
+('2023-03-15', '13-05'),
+('2021-07-22', '01-018'),
+('2022-11-05', '17-364'),
+('2024-01-09', '09-02'),
+('2020-05-30', '15-127');
 
-
--- Insert data into Property tables
-INSERT INTO Property_R1 (unitNum, propertyOwnerId, type, postcode, size, furnishing) VALUES
-(101, 1, 'Condo', '12345', 1000, 'Furnished'),
-(102, 2, 'Apartment', '12346', 850, 'Unfurnished'),
-(103, 3, 'HDB', '12347', 900, 'Partially Furnished'),
-(104, 4, 'Bungalow', '12348', 2000, 'Furnished'),
-(105, 5, 'Terrace', '12349', 1200, 'Unfurnished');
-
+-- Insert into R2 before inserting into R1
 INSERT INTO Property_R2 (postcode, street) VALUES
 ('123456', 'Orchard Road'),
 ('123467', 'Sengkang Road'),
