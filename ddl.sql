@@ -93,4 +93,27 @@ CREATE TABLE longtermrental (
     minStay INT NOT NULL,
     allowVisitors BOOLEAN NOT NULL
 );
+
+--ViewingHistory
+CREATE TABLE viewinghistory (
+    customerId INT FOREIGN KEY REFERENCES customer(nric),
+    listingId INT FOREIGN KEY REFERENCES listing(id),
+    datetime TIME NOT NULL,
+    status STRING NOT NULL,
+)
+
+CREATE TABLE chat (
+    customerId INT FOREIGN KEY REFERENCES customer(nric),
+    listingId INT FOREIGN KEY REFERENCES listing(id),
+    timestamp TIME NOT NULL,
+    content STRING,
+)
+
+CREATE TABLE reviewlog (
+    listingId INT FOREIGN KEY REFERENCES listing(id),
+    usernric INT FOREIGN KEY REFERENCES user(nric),
+    datetime TIME NOT NULL,
+    comment STRING NOT NULL,
+    rating INT NOT NULL
+)
 COMMIT;
