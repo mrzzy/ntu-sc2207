@@ -6,6 +6,21 @@
 
 BEGIN TRANSACTION;
 
+-- Drop tables with foreign key constraints first
+DROP TABLE IF EXISTS AppointmentLog;
+DROP TABLE IF EXISTS Appointment;
+DROP TABLE IF EXISTS Engagement;
+DROP TABLE IF EXISTS shorttermrental;
+DROP TABLE IF EXISTS longtermrental;
+DROP TABLE IF EXISTS rental;
+DROP TABLE IF EXISTS Sale;
+DROP TABLE IF EXISTS Property_R1;
+DROP TABLE IF EXISTS listing;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS agent;
+DROP TABLE IF EXISTS propertyowner;
+
+
 -- User table
 CREATE TABLE [User] (
     nric VARCHAR(9) PRIMARY KEY,
