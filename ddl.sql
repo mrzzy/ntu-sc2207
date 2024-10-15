@@ -66,6 +66,38 @@ ALTER TABLE Property_R1
 ADD CONSTRAINT fk_postcode
 FOREIGN KEY (postcode) REFERENCES Property_R2(postcode);
 
+-- Engagement table
+CREATE TABLE Engagement (
+    customerId VARCHAR(9),
+    listingId INT,
+    PRIMARY KEY (customerId, listingId),
+    FOREIGN KEY (customerId) REFERENCES customer(nric),
+    FOREIGN KEY (listingId) REFERENCES listing(id)
+);
+
+-- Appointment table
+CREATE TABLE Appointment (
+    customerId VARCHAR(9),
+    listingId INT,
+    appointmentDate DATE,
+    appointmentTime TIME,
+    PRIMARY KEY (customerId, listingId, appointmentDate),
+    FOREIGN KEY (customerId, listingId) REFERENCES Engagement(customerId, listingId)
+);
+
+-- AppointmentLog table
+CREATE TABLE AppointmentLog (
+    customerId VARCHAR(9),
+    listingId INT,
+    appointmentDate DATE,
+    time DATETIME,
+    status VARCHAR(50),
+    actionBy VARCHAR(9),
+    PRIMARY KEY (customerId, listingId, appointmentDate, time),
+    FOREIGN KEY (customerId, listingId, appointmentDate) REFERENCES Appointment(customerId, listingId, appointmentDate),
+    FOREIGN KEY (actionBy) REFERENCES [User](nric)
+);
+
 -- Sale table
 CREATE TABLE Sale (
     listingId INT FOREIGN KEY REFERENCES listing(id),
