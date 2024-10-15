@@ -46,7 +46,7 @@ INSERT INTO [User] (nric, [name], contactnum, password, email) VALUES
     'password592'
     'gerry.tan@example.com'
 ),
-('S9012345K', 'Harold Poon', '+658224710', 'password284', harold.poon@example.com');
+('S9012345K', 'Harold Poon', '+658224710', 'password284', 'harold.poon@example.com');
 
 -- Insert data into Customer table
 INSERT INTO customer (nric, intention) VALUES
