@@ -50,8 +50,8 @@ CREATE TABLE listing (
 --Rental
 CREATE TABLE rental (
     listingid INT FOREIGN KEY REFERENCES listing (id),
-    hasutilities BOOLEAN NOT NULL,
-    hasaircon BOOLEAN NOT NULL
+    hasutilities BIT NOT NULL,
+    hasaircon BIT NOT NULL
 );
 --ShortTermRental
 CREATE TABLE shorttermrental (
@@ -63,6 +63,6 @@ CREATE TABLE longtermrental (
     listingid INT FOREIGN KEY REFERENCES listing (id),
     monthlyrental FLOAT NOT NULL,
     minstay INT NOT NULL,
-    allowvisitors BOOLEAN NOT NULL
+    allowvisitors BIT NOT NULL
 );
 COMMIT;
