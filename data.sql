@@ -113,11 +113,43 @@ INSERT INTO Sale (listingId, price, buildYear, tenure) VALUES
 
 -- Insert data into Rental table
 INSERT INTO Rental (listingId, hasUtilities, hasAircon) VALUES
-(1, TRUE, TRUE),
-(2, FALSE, TRUE),
-(3, TRUE, FALSE),
-(4, TRUE, TRUE),
-(5, FALSE, FALSE);
+(1, 'TRUE', 'TRUE'),
+(2, 'FALSE', 'TRUE'),
+(3, 'TRUE', 'FALSE'),
+(4, 'TRUE', 'TRUE'),
+(5, 'FALSE', 'FALSE');
 
+-- Insert data into Engagement table
+INSERT INTO Engagement (customerId, listingId) VALUES
+('S1234567A', 1),
+('S2345678B', 2),
+('S3456789C', 3),
+('S4567890D', 4),
+('S5678901E', 5),
+('S1234567A', 3),
+('S2345678B', 5);
+
+-- Insert data into Appointment table
+INSERT INTO Appointment (customerId, listingId, appointmentDate, appointmentTime) VALUES
+('S1234567A', 1, '2024-10-20', '14:00'),
+('S2345678B', 2, '2024-10-21', '10:30'),
+('S3456789C', 3, '2024-10-22', '16:45'),
+('S4567890D', 4, '2024-10-23', '11:15'),
+('S5678901E', 5, '2024-10-24', '15:30'),
+('S1234567A', 3, '2024-10-25', '09:00'),
+('S2345678B', 5, '2024-10-26', '13:45');
+
+-- Insert data into AppointmentLog table
+INSERT INTO AppointmentLog (customerId, listingId, appointmentDate, time, status, actionBy) VALUES
+('S1234567A', 1, '2024-10-20', '2024-10-20 14:00', 'Scheduled', 'S1234567A'),
+('S2345678B', 2, '2024-10-21', '2024-10-21 10:30', 'Scheduled', 'S2345678B'),
+('S3456789C', 3, '2024-10-22', '2024-10-22 16:45', 'Scheduled', 'S3456789C'),
+('S4567890D', 4, '2024-10-23', '2024-10-23 11:15', 'Scheduled', 'S4567890D'),
+('S5678901E', 5, '2024-10-24', '2024-10-24 15:30', 'Scheduled', 'S5678901E'),
+('S1234567A', 1, '2024-10-20', '2024-10-20 14:15', 'Started', 'S1234567A'),
+('S2345678B', 2, '2024-10-21', '2024-10-21 10:45', 'Started', 'S2345678B'),
+('S3456789C', 3, '2024-10-22', '2024-10-22 17:00', 'Started', 'S3456789C'),
+('S4567890D', 4, '2024-10-23', '2024-10-23 11:30', 'Started', 'S4567890D'),
+('S5678901E', 5, '2024-10-24', '2024-10-24 15:45', 'Started', 'S5678901E');
 
 COMMIT;
